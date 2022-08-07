@@ -1,0 +1,30 @@
+{
+  "only_dataset": false,
+  "sample_size": null,
+
+  "embeddings_neighbors": ["tfidf_512", "xlm"],
+  "embeddings_extra": [],
+
+  "train_neighbors": {
+    "max": 200,
+    "threshold": [0.4],
+    "blending_stages": 0,
+    "qe": false
+  },
+
+  "valid_neighbors": {
+    "max": 200,
+    "threshold": [0.4],
+    "blending_stages": 0,
+    "qe": false
+  },
+
+  "params": {
+    "device_type": "gpu",
+    "gpu_use_dp": false,
+    "objective": "binary",
+    "learning_rate": 0.02,
+    "num_leaves": 128,
+    "colsample_bytree": 0.9
+  }
+}

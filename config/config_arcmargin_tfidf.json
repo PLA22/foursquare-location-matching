@@ -1,0 +1,111 @@
+{
+  "mixed_precision": true,
+  "sample_train":  null,
+  "callbacks": {
+    "checkpoint": false
+  },
+  "batch_size": 128,
+  "epochs": 20,
+  "sample_weight_exp": 0,
+  "transformer_tokenizer_url": null,
+  "transformer_model_url": null,
+  "transformer_maxlen": null,
+  "model": {
+    "scheduler": {
+      "name": "keras.optimizers.schedules.PiecewiseConstantDecay",
+      "params": {
+        "boundaries": [
+          999999
+        ],
+        "values": [
+          0.001,
+          0.0005
+        ]
+      }
+    },
+    "dim_embedding": 512,
+    "arcmargin": {
+      "m_init": 0.2,
+      "m": 0.8,
+      "s": 32,
+      "easy_margin": false,
+      "ls_eps": 0,
+      "warmup_iters": 40390,
+      "l2": 5e-5
+    }
+  },
+  "features": {
+    "freq_category_exclude": 5,
+    "text_normalize": [],
+    "text_clean": [
+      "city",
+      "state"
+    ],
+    "tfidf": [
+      {
+        "name": "categories",
+        "params": {
+          "min_df": 20,
+          "binary": true
+        }
+      },
+      {
+        "name": "zip",
+        "params": {
+          "min_df": 20,
+          "analyzer": "char",
+          "ngram_range": [
+            1,
+            4
+          ]
+        }
+      },
+      {
+        "name": "address",
+        "params": {
+          "min_df": 20,
+          "analyzer": "char_wb",
+          "ngram_range": [
+            1,
+            3
+          ]
+        }
+      },
+      {
+        "name": "name",
+        "params": {
+          "min_df": 20,
+          "analyzer": "char_wb",
+          "ngram_range": [
+            1,
+            3
+          ]
+        }
+      }
+    ],
+    "categorical": [],
+    "numeric_scale": [
+      "has_phone",
+      "has_url"
+    ],
+    "numeric_no_scale": [
+      "latlon"
+    ],
+    "onehot": [
+      "city",
+      "state",
+      "country",
+      "url_domain"
+    ],
+    "embeddings_extra": [],
+    "transformer": []
+  },
+  "neighbors": {
+    "max": 200,
+    "threshold": [
+      0.5
+    ],
+    "blending_stages": 0,
+    "qe": false
+  }
+}

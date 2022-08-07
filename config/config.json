@@ -1,0 +1,30 @@
+{
+  "inference": "lgb",
+
+  "arcface": {
+    "max": 200,
+    "threshold": [0.675],
+    "blending_stages": 0,
+    "qe": false
+  },
+
+  "lgb": {
+    "embeddings_blending_threshold": 0.65,
+    "embeddings_neighbors": [
+      "tfidf_512",
+      "xlm"
+    ],
+    "embeddings_extra": [
+      "tfidf_512_blend",
+      "xlm_blend"
+    ],
+    "neighbors": {
+      "max": 200,
+      "threshold": [0.4],
+      "blending_stages": 0,
+      "qe": false
+    },
+    "threshold_merge": 0.45,
+    "threshold_lgb": 0.55
+  }
+}
